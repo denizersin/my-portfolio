@@ -26,9 +26,9 @@ const taskVaroiants = () => ({
     transition: {
         duration: .4
     },
-    exit:{
-        backgroundColor:'red',
-        color:'white'
+    exit: {
+        backgroundColor: 'red',
+        color: 'white'
 
     }
 }
@@ -57,12 +57,12 @@ export default function Task({ data, setAllTaskData }) {
                 }
                 return dt
             })
-            setAllTaskData(n);
+            return n;
 
         })
 
         setTimeout(() => {
-            setAllTaskData(prev => (prev.filter(d => d.id !== data.id)))
+            setAllTaskData(prev => (prev.filter(d => !d.remove)))
         }, 400);
     }
 
@@ -73,14 +73,14 @@ export default function Task({ data, setAllTaskData }) {
             {!data.remove && (<motion.div
                 layout
                 exit={{
-                    height:0,
+                    height: 0,
                 }}
                 className={`hero w-full h-auto   overflow-hidden`}>
-                    
+
                 <motion.div
                     layout
                     {...taskVaroiants()}
-                    className={`Task component overflow-visible w-full bg-neutral-100 border  h-max flex px-2 py-1 pl-4 cursor-pointer dark:bg-slate-500 `}>
+                    className={`Task component overflow-visible w-full bg-neutral-100 border border-black  h-max flex px-2 py-1 pl-4 cursor-pointer dark:bg-slate-500 mt-2`}>
                     <div onClick={handleDoneTask} className={`done px-5 hover:scale-125 hover:text-green-400 cursor-pointer ${data.done ? 'text-green-500' : ''}`}>
                         <MdDoneOutline className='task-text' />
                     </div>

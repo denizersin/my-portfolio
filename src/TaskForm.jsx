@@ -22,7 +22,7 @@ export default function TaskForm({ isFormOpen, setAllTaskData }) {
                     className={`flex justify-between pr-2 overflow-hidden ${isFormOpen ? 'h-0' : 'h-max'}`}
                     layout  >
                     <div className="input-c w-[80%]  bg-transparent pl-2">
-                        <input type="text" className='w-full h-full border-4 dark:bg-slate-400' value={text} onChange={(e) => setText(e.target.value)} />
+                        <input type="text" className='w-full h-full border-2 border-black dark:bg-slate-400' value={text} onChange={(e) => setText(e.target.value)} />
                     </div>
                     <div className='add-task w-12 h-10 border-2'>
                         <button
