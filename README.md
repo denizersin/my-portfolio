@@ -1,4 +1,4 @@
- [Live](https://weather-app-react-2h2.pages.dev/).
+ [Live](https://mellifluous-biscotti-e77b48.netlify.app/).
 
 # Getting Started with Create React App
 
