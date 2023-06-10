@@ -1,8 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { motion, useMotionValueEvent, useScroll, useSpring, useTransform } from 'framer-motion'
-
-export default function Menu({ currMenu, setCurrMenu }) {
+import { AnimatePresence, motion, useMotionValueEvent, useScroll, useSpring, useTransform } from 'framer-motion'
+import { AiOutlineHome, AiOutlineMail } from 'react-icons/ai';
+export default function Menu({ currMenu, setCurrMenu, setNewMenu }) {
 
 
     const navigate = useNavigate();
@@ -10,108 +10,115 @@ export default function Menu({ currMenu, setCurrMenu }) {
         let name = e.currentTarget.getAttribute('name');
         console.log(name)
         navigate(`/${name}`);
-        setCurrMenu(name)
+        setNewMenu(name)
     }
-    console.log(currMenu)
+
+
+
+
     return (
-        <div className={'Menu component fixed bottom-0 w-full h-20  z-40 flex bg-yellow-100 justify-center items-center'}>
-            <motion.div layout className="mens-container flex bg-green-400 w-[200px] justify-center">
+        <div className={'Menu component bg fixed bottom-0 w-[100%] h-max py-0.5  z-40 flex  justify-center items-center border-t '}>
+            <motion.div layout className="mens-container relative flex gap-4  w-[200px] h-[50px]   justify-center items-center py-2  "
+            >
+                <motion.div
+                    transition={{
+                        delay: 1
+                    }}
+                    layout className="border border-white contaienr  text-black cursor-pointer relative z-10 w-12 h-12 flex justify-center items-center rounded-full ">
 
-                {
-                    currMenu !== 'home' ?
+                    {
+                        currMenu !== 'home' ?
 
-                        (<motion.div layout className="contaienr  w-10 h-10 flex justify-center items-center">
                             <motion.div
                                 layout
                                 name="home"
                                 onClick={handleClick}
                                 layoutId='home-menu'
-                                className='  w-6 h-6 bg-red-400 z-0 rounded-sm '
+                                className=' absolute z-10 w-12 h-12 bg text-white rounded-full flex items-center justify-center '
                                 transition={{ duration: .4 }}
-                                style={{ originX: .1, originY: .5 }}
 
                             >
-                                <motion.h1 layout className='w-max h-max'>
-                                    H
-                                </motion.h1>
-
+                                <motion.span>
+                                    <AiOutlineHome className='text-[25px] text-white'></AiOutlineHome>
+                                </motion.span>
                             </motion.div>
-                        </motion.div>)
-                        : null
-                }
+                            : null
+                    }
+                    <motion.span >
+                    <AiOutlineHome className='text-[25px] text-white'></AiOutlineHome>
+
+                    </motion.span>
 
 
-{
-                    currMenu !== 'home' ?
+                </motion.div>
 
-                        (<motion.div layout className="contaienr  w-10 h-10 flex justify-center items-center">
+                <motion.div
+                    transition={{
+                        delay: 1
+                    }}
+                    layout className="border z-10 border-white contaienr  text-black cursor-pointer relative w-12 h-12 flex justify-center items-center rounded-full ">
+
+
+                    {
+                        currMenu !== 'contact' ?
+
+
                             <motion.div
                                 layout
-                                name="home"
-                                onClick={handleClick}
-                                layoutId='home-menu'
-                                className='  w-6 h-6 bg-red-400 z-0 rounded-sm '
-                                transition={{ duration: .4 }}
-                                style={{ originX: .1, originY: .5 }}
-
-                            >
-                                <motion.h1 layout className='w-max h-max'>
-                                    H
-                                </motion.h1>
-
-                            </motion.div>
-                        </motion.div>)
-                        : null
-                }
-
-
-                {
-                    currMenu !== 'contact' ?
-
-                        <motion.div layout className="contaienr  w-10 h-10 flex justify-center items-center">
-
-                            <motion.div
                                 name="contact"
                                 onClick={handleClick}
                                 layoutId='contact-menu'
-                                layout
-                                className='  w-6 h-6 bg-red-400 z-0 rounded-sm '
+                                className=' absolute z-10 w-12 h-12 bg text-white rounded-full flex items-center justify-center '
+
                                 transition={{ duration: .4 }}
-                                style={{ originX: .1, originY: .5 }}
 
                             >
-                                <motion.h1 layout className='w-max h-max'>
-                                    C
-                                </motion.h1>
+                                <AiOutlineMail className='text-[25px] text-white' />
 
                             </motion.div>
-                        </motion.div>
-                        : null
-                }
-                {
-                    currMenu !== 'work' ?
+                            : null
+                    }
+                    <AiOutlineMail className='text-[25px] text-white' />
+                </motion.div>
 
-                        <motion.div layout className="contaienr  w-10 h-10 flex justify-center items-center">
+
+
+                <motion.div
+                    transition={{
+                        delay: 1
+                    }}
+                    layout className="border z-10 border-white contaienr  text-white cursor-pointer relative w-12 h-12 flex justify-center items-center rounded-full ">
+
+
+                    {
+                        currMenu !== 'work' ?
+
+
                             <motion.div
+                                layout
                                 name="work"
                                 onClick={handleClick}
                                 layoutId='work-menu'
-                                layout
-                                className='  w-6 h-6 bg-red-400 z-0 rounded-sm '
+                                className=' absolute z-10 w-12 h-12 bg text-white rounded-full flex items-center justify-center '
+
                                 transition={{ duration: .4 }}
-                                style={{ originX: .1, originY: .5 }}
 
                             >
-                                <motion.h1 layout className='w-max h-max'>
-                                    W
-                                </motion.h1>
+                                W
 
                             </motion.div>
-                        </motion.div>
-                        : null
-                }
+                            : null
+                    }
+                    W
+                </motion.div>
+
 
             </motion.div>
+                <div className="back absolute left-0 top-0 z-0  w-full h-full   "></div>
+
+
+
+
         </div>
     )
 }
