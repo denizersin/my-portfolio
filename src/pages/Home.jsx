@@ -24,10 +24,9 @@ export default function Home() {
     let sc1Progress = useTransform(scrollY, [0, scrollableNum], [0, 1])
     let sc1ProgressVal = sc1Progress;
     sc1Progress = useSpring(sc1Progress); // deger degisiminie spring uygula!
-    let fixedBackScle = useTransform(sc1Progress, [0, 1], [1 / 3, 2.5])
+    let fixedBackScle = useTransform(sc1Progress, [0, 1], [.7, 2.5])
     let fixedBackTransfrom = useTransform(sc1Progress, (l => `translate(-50%,-50%) scale(${fixedBackScle.get()})`))
     let contetnScale = useTransform(fixedBackScle, l => l == 0 ? .3 : ((1 / l)))
-    console.log(contetnScale.get())
     let vh = window.innerHeight;
 
     let yk = useMotionValue(vh / 2);
@@ -143,7 +142,7 @@ export default function Home() {
                         style={{
                             transform: fixedBackTransfrom
                         }}
-                        className="image absolute z-0  center-non-static w-[100vh] h-[100vh]  rounded-full border-[20px] border-gray-400  bg    flex items-center justify-center overflow-hidden" >
+                        className="image absolute z-0  center-non-static w-[100vh] h-[100vh] max-sm:w-[60vh] max-sm:h-[60vh] rounded-full border-[20px] border-gray-400  bg    flex items-center justify-center overflow-hidden" >
                         <motion.div
                             {...contentVariants}
                             className="content  relative z-20 w-[100vw] h-[100vh] flex flex-col justify-center items-center md:text-7xl  text-white  text-4xl ">
@@ -209,7 +208,7 @@ export default function Home() {
                             className=" relative w-full h-auto flex justify-center z-20  text-white backdrop-blur-xl rounded-lg">
                             <motion.div
                                 
-                                className="sections  relative z-20 w-[100%] max-sm:w-full sm:w-[95%] test p-16 pt-16 max-sm:pt-6 max-sm:px-1   pb-24  border-[0px] max-sm:border-0 border-gray-400/50   rounded-3xl  ">
+                                className="sections  relative z-20 w-[100%] max-sm:w-full sm:w-[95%] test p-16 pt-16 max-sm:pt-0 max-sm:px-1   pb-24  border-[0px] max-sm:border-0 border-gray-400/50   rounded-3xl  ">
                                 {/* <div className="back absolute z-0 w-full h-full   "></div> */}
                                 <motion.div
                                     
