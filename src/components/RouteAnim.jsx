@@ -47,7 +47,7 @@ export default function RouteAnim({ currMenu, newMenu, setCurrMenu }) {
             containerRef.current.style.visibility = "visible";
             containerRef.current.style.opacity = "1";
             val.set(20);
-            await wait(600)
+            await wait(400)
             setCurrMenu(newMenu);
         }
         foo();

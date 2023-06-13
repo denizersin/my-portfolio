@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion, useMotionValueEvent, useScroll, useSpring, useTransform } from 'framer-motion'
 import { AiOutlineHome, AiOutlineMail } from 'react-icons/ai';
+import * as cs from 'classnames';
 export default function Menu({ currMenu, setCurrMenu, setNewMenu }) {
 
 
@@ -13,18 +14,26 @@ export default function Menu({ currMenu, setCurrMenu, setNewMenu }) {
         setNewMenu(name)
     }
 
+    useEffect(() => {
+        navigate(`/${'home'}`);
+        setNewMenu('home')
 
+    }, []);
 
 
     return (
-        <div className={'Menu component bg fixed bottom-0 w-[100%] h-max py-0.5  z-40 flex  justify-center items-center border-t '}>
+        <div className={'Menu component  fixed bottom-0 w-[100%] h-max py-0.5  z-40 flex  justify-center items-center  '}>
             <motion.div layout className="mens-container relative flex gap-4  w-[200px] h-[50px]   justify-center items-center py-2  "
             >
                 <motion.div
                     transition={{
                         delay: 1
                     }}
-                    layout className="border border-white contaienr  text-black cursor-pointer relative z-10 w-12 h-12 flex justify-center items-center rounded-full ">
+                    layout className={cs(" bg  border-gray-400 contaienr text-black cursor-pointer relative z-10 w-12 h-12 flex justify-center items-center rounded-full ",
+                        {
+                            'border-4': currMenu === 'home'
+                        }
+                    )}>
 
                     {
                         currMenu !== 'home' ?
@@ -34,18 +43,18 @@ export default function Menu({ currMenu, setCurrMenu, setNewMenu }) {
                                 name="home"
                                 onClick={handleClick}
                                 layoutId='home-menu'
-                                className=' absolute z-10 w-12 h-12 bg text-white rounded-full flex items-center justify-center '
+                                className='bg absolute z-10 w-12 h-12  text-white rounded-full flex items-center justify-center '
                                 transition={{ duration: .4 }}
 
                             >
-                                <motion.span>
-                                    <AiOutlineHome className='text-[25px] text-white'></AiOutlineHome>
+                                <motion.span className=''>
+                                    <AiOutlineHome className=' text-[25px] text-white'></AiOutlineHome>
                                 </motion.span>
                             </motion.div>
                             : null
                     }
                     <motion.span >
-                    <AiOutlineHome className='text-[25px] text-white'></AiOutlineHome>
+                        <AiOutlineHome className='text-[25px] text-white'></AiOutlineHome>
 
                     </motion.span>
 
@@ -56,7 +65,11 @@ export default function Menu({ currMenu, setCurrMenu, setNewMenu }) {
                     transition={{
                         delay: 1
                     }}
-                    layout className="border z-10 border-white contaienr  text-black cursor-pointer relative w-12 h-12 flex justify-center items-center rounded-full ">
+                    layout className={cs(" bg  border-gray-400 contaienr text-black cursor-pointer relative z-10 w-12 h-12 flex justify-center items-center rounded-full ",
+                        {
+                            'border-4': currMenu === 'contact'
+                        }
+                    )}>
 
 
                     {
@@ -68,12 +81,12 @@ export default function Menu({ currMenu, setCurrMenu, setNewMenu }) {
                                 name="contact"
                                 onClick={handleClick}
                                 layoutId='contact-menu'
-                                className=' absolute z-10 w-12 h-12 bg text-white rounded-full flex items-center justify-center '
+                                className=' bg absolute z-10 w-12 h-12  text-white rounded-full flex items-center justify-center '
 
                                 transition={{ duration: .4 }}
 
                             >
-                                <AiOutlineMail className='text-[25px] text-white' />
+                                <AiOutlineMail className=' text-[25px] text-white' />
 
                             </motion.div>
                             : null
@@ -87,8 +100,11 @@ export default function Menu({ currMenu, setCurrMenu, setNewMenu }) {
                     transition={{
                         delay: 1
                     }}
-                    layout className="border z-10 border-white contaienr  text-white cursor-pointer relative w-12 h-12 flex justify-center items-center rounded-full ">
-
+                    layout className={cs(" bg  border-gray-400 contaienr text-white cursor-pointer relative z-10 w-12 h-12 flex justify-center items-center rounded-full ",
+                        {
+                            'border-4': currMenu === 'work'
+                        }
+                    )}>
 
                     {
                         currMenu !== 'work' ?
@@ -99,7 +115,7 @@ export default function Menu({ currMenu, setCurrMenu, setNewMenu }) {
                                 name="work"
                                 onClick={handleClick}
                                 layoutId='work-menu'
-                                className=' absolute z-10 w-12 h-12 bg text-white rounded-full flex items-center justify-center '
+                                className='bg absolute z-10 w-12 h-12 bg2 text-white rounded-full flex items-center justify-center '
 
                                 transition={{ duration: .4 }}
 
@@ -114,7 +130,7 @@ export default function Menu({ currMenu, setCurrMenu, setNewMenu }) {
 
 
             </motion.div>
-                <div className="back absolute left-0 top-0 z-0  w-full h-full   "></div>
+            <div className="back absolute left-0 top-0 z-0  w-full h-full   "></div>
 
 
 

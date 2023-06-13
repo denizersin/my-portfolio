@@ -7,19 +7,21 @@ import Home from "./pages/Home";
 import Menu from "./Menu";
 import Contact from "./pages/Contact";
 import RouteAnim from "./components/RouteAnim";
+import Work from "./pages/Work";
 
 
 
 export default function App() {
-  const [currMenu, setCurrMenu] = useState('');
-  const [newMenu, setNewMenu] = useState('');
+  const [currMenu, setCurrMenu] = useState('home');
+  const [newMenu, setNewMenu] = useState('home');
 
   return (
     <div className="App">
       <RouteAnim currMenu={currMenu} newMenu={newMenu} setCurrMenu={setCurrMenu} />
       <Routes>
         <Route path='/home' element={<Home />}></Route>
-        <Route path='c' element={<Contact />}></Route>
+        <Route path='/contact' element={<Contact />}></Route>
+        <Route path='/work' element={<Work />}></Route>
       </Routes>
       <Menu {...{ currMenu, setCurrMenu, newMenu, setNewMenu }} />
     </div>
