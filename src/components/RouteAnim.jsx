@@ -1,6 +1,7 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import React, { useEffect, useRef } from 'react'
 import { wait } from '../App';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -17,12 +18,12 @@ export default function RouteAnim({ currMenu, newMenu, setCurrMenu }) {
     const containerRef = useRef();
 
     const circleRef = useRef();
+    const navigate=useNavigate();
 
     useEffect(() => {
         
         val.set(20)
         containerRef.current.style.zIndex = "99";
-
 
         const foo = async () => {
 
@@ -31,9 +32,9 @@ export default function RouteAnim({ currMenu, newMenu, setCurrMenu }) {
             containerRef.current.style.zIndex = "30";
             await wait(400)
             containerRef.current.style.opacity = "0";
+            navigate('/'+newMenu);
             await wait(400)
             containerRef.current.style.visibility = "hidden";
-
         }
         foo();
 

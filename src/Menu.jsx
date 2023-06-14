@@ -12,9 +12,8 @@ export default function Menu({ currMenu, setCurrMenu, setNewMenu }) {
         let name = e.currentTarget.getAttribute('name');
         console.log(name)
         setNewMenu(name)
-        setTimeout(() => {
-            navigate(`/${name}`);
-        }, 1200);
+
+        // navigate(`/${name}`);
     }
 
     useEffect(() => {
