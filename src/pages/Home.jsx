@@ -1,4 +1,4 @@
-import { motion, transform, useMotionValue, useMotionValueEvent, useScroll, useSpring, useTransform } from 'framer-motion'
+import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
 import Projects from '../components/Projets/Projects';
 import OLetter from '../components/OLetter';
@@ -123,10 +123,13 @@ export default function Home() {
 
     return (
         <motion.div initial={{
-            opacity: 0
+            opacity: 0,
+            visibility: 'hidden'
         }}
             animate={{
-                opacity: 1
+                opacity: 1,
+                visibility: 'visible'
+
             }}
             transition={{
                 duration: .4,
