@@ -133,8 +133,6 @@ export default function Home() {
             }}
             transition={{
                 duration: .4,
-                delay: 2,
-
             }}
         >
             <motion.div className="fixed-item left-0 top-0 fixed z-20 w-full h-full overflow-hidden  "

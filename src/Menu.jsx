@@ -8,15 +8,20 @@ export default function Menu({ currMenu, setCurrMenu, setNewMenu }) {
 
     const navigate = useNavigate();
     const handleClick = (e) => {
+
         let name = e.currentTarget.getAttribute('name');
         console.log(name)
-        navigate(`/${name}`);
         setNewMenu(name)
+        setTimeout(() => {
+            navigate(`/${name}`);
+        }, 1200);
     }
 
     useEffect(() => {
-        navigate(`/${'home'}`);
-        setNewMenu('home')
+        setTimeout(() => {
+            navigate(`/${'home'}`);
+            setNewMenu('home')
+        }, 0);
 
     }, []);
 

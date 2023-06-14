@@ -1,8 +1,5 @@
-import { motion, useMotionValue, useMotionValueEvent, useScroll, useSpring, useTransform } from 'framer-motion'
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import React, { useEffect, useRef } from 'react'
-import Projects from '../components/Projets/Projects';
-import { useState } from 'react';
-import { waitFor } from '@testing-library/react';
 import { wait } from '../App';
 
 
