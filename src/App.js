@@ -14,7 +14,7 @@ import Work from "./pages/Work";
 export default function App() {
   const [currMenu, setCurrMenu] = useState('home');
   const [newMenu, setNewMenu] = useState('home');
-
+  
   return (
     <div className="App">
       <RouteAnim currMenu={currMenu} newMenu={newMenu} setCurrMenu={setCurrMenu} />
